@@ -1,7 +1,8 @@
 .twitter-timeline {
-    max-width: 100%;
-    max-height: 1000px;
+    width: 70%;
+    /* max-height: 1000px; */
     overflow: scroll;
+    margin-left: 150px;
     
 }
 .fa {
@@ -20,7 +21,13 @@ color: #1da1f2 !important;
 .panel {
 margin-top: 25px;
 }
-p.timeline-Tweet-text {
-    font-size: 10px;
+
+element.style {
+    width: 70%;
+    /* margin: auto; */
+    margin-left: 300px;
 }
   
+img.naturalimage-image {
+    display: none;
+}

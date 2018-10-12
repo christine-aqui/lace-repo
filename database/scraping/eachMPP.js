@@ -53,7 +53,7 @@ const eachmppRouter = router => {
                 positions.push(
                   $(allPositions[j])
                     .text()
-                    .replace(/[\r\n]+/g, '')
+                    // .replace(/[\r\n]+/g, '')
                 );
               }
             }

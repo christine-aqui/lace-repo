@@ -35,6 +35,7 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
 
+// mongoose.connect('mongodb://localhost/lace-repo');
 // the setup for passport to use the cookiesssss
 app.use(
   cookieSession({
@@ -77,6 +78,7 @@ app.use('/api/mppName/:name', (req, res) => {
     .then(dbModel => {
       res.json(dbModel);
       console.log(dbModel);
+      console.log('yeahhhh boi')
     })
     .catch(err => {
       console.error(err);
