@@ -1,6 +1,7 @@
 /* eslint-disable */
 import React, { Component } from 'react';
 import axios from 'axios';
+import API from '../utils/API';
 
 import MppInfo from './dashComponents/Mppinfo';
 import SocialFeed from './dashComponents/SocialFeed';
@@ -40,7 +41,8 @@ export default class SelectedMPP extends Component {
     dateOfService:'',
     currentRiding:'',
     ridingMap:'',
-    hansard: []
+    hansard: [],
+    votes:'',
   };
 
     //load on Speech Feed
@@ -52,10 +54,21 @@ export default class SelectedMPP extends Component {
     };
     //load on Voting Records page
     loadVotesByMpp = () => {
-      API.getVotesByMpp(this.state.votes)
-      .then(res =>
-        this.setState({ votes: res.data}))
-      .catch(err => console.log(err));
+      axios.get(`/api/mppVotes/${this.state.mppLockup}`, {
+        // name: name
+      })
+      .then(res => {
+        console.log('this is vote ',res.data)
+      })
+      .catch(err => {
+        console.log(err);
+      });
+      // API.getVotesByMpp(this.state.mppLockup)
+      // .then(res => {
+      //   console.log('this is vote ',res)
+      //   // this.setState({ votes: res.data})
+      // })
+      // .catch(err => console.log(err));
     };
 
     // let url = window.location.href;
@@ -80,12 +93,12 @@ export default class SelectedMPP extends Component {
     }
 
     getNews(){
-      newsapi.v2
-      .topHeadlines({
-        q: this.state.mppLockup,
-        category: 'politics',
+      newsapi.v2.everything({
+        q: this.state.name,
+        // category: 'politics',
         language: 'en',
-        country: 'ca'
+        sources: 'cbc-news'
+        // country: 'ca',
       })
       .then(response => {
         response.totalResults === 0 ? console.log('no res') : console.log('this is the news ',response);
@@ -93,12 +106,13 @@ export default class SelectedMPP extends Component {
       .catch(err => {
         console.log(err);
       });
-
     }
+
 
   componentDidMount(){
     this.mppSearch()
     this.getNews()
+    this.loadVotesByMpp()
   }
 
 

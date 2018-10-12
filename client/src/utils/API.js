@@ -17,8 +17,8 @@ export default {
       console.log(res.data)
     })
   },
-  getVotesByMpp: function() {
-    return axios.get('./api/mppVotes' + name)
+  getVotesByMpp: function(name) {
+    return axios.get('/api/mppVotes' + name)
     .then(res => {
       console.log(res.data)
     })
