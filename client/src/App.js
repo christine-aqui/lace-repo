@@ -11,6 +11,7 @@ import SelectedDash from './components/SelectedDash';
 import GenDash from './components/GenDash';
 import UserDash from './components/UserDash';
 import fakeData from './fakedata';
+import Logo from './components/Logo';
 // import Login from './components/Login';
 // import Signup from './components/Signup';
 // import listMPPS from './components/AllMPPS';
@@ -31,8 +32,8 @@ class App extends Component {
       <BrowserRouter>
         <div>
         <Navbar />
-          <Route exact path="/" component={Landing} />
-          <Route exact path="/test" component={GenDash} />
+          <Route exact path="/" component={Logo} />
+          <Route exact path="/test" component={Landing} />
           {/* <Route exact path="/login" component={Login} /> */}
           {/* <Route exact path="/signup" component={Signup} /> */}
           <Route exact path="/user"
