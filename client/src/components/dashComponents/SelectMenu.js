@@ -28,8 +28,10 @@ export default class SelectMenu extends Component {
     axios
       .post(`/api/mppName/${newValue.label}`)
       .then(res => {
-        console.log(res.data + 'me');
+        // console.log(res.data + 'me');
         this.setState({ value: newValue.label });
+        // console.log(this.state.value + 'me1');
+        // console.log(res + 'me res');
         window.location = `/mpp/${this.state.value}`;
         this.loading = false;
       })
@@ -46,7 +48,7 @@ export default class SelectMenu extends Component {
       <CreatableSelect
         isClearable
         onChange={this.handleChange}
-        onInputChange={this.handleInputChange}
+        // onInputChange={this.handleInputChange}
         options={arrayNames}
         defaultValue
         styles={customStyles}

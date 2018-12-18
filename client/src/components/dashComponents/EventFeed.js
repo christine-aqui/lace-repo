@@ -81,7 +81,7 @@ class EventFeed extends Component {
     axios
       .get('/api/events/', {})
       .then(res => {
-        console.log(res);
+        // console.log(res);
         this.setState({
           eventDetails: res.data
         });

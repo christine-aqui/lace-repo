@@ -4,7 +4,7 @@ import { Timeline } from 'react-twitter-widgets';
 // import { TwitterTimelineEmbed } from 'react-twitter-embed';
 
 const handleUser = link => {
-  console.log('ok ', link);
+  // console.log('ok ', link);
   if (window.location.pathname === '/landing') {
     return (
       <Timeline
