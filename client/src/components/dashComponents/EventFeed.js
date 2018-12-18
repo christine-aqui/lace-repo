@@ -37,7 +37,7 @@ const styles = theme => ({
   textField: {
     // marginLeft: theme.spacing.unit,
     // marginRight: theme.spacing.unit,
-    padding: "20px",
+    padding: '20px',
     width: 200
   },
   dense: {
@@ -53,8 +53,8 @@ const styles = theme => ({
     display: 'flex',
     flexWrap: 'wrap'
   },
-  eventList: { width: '40rem', padding:"10px" },
-  eventForm: {width: '40rem'}
+  eventList: { width: '40rem', padding: '10px' },
+  eventForm: { width: '40rem' }
 });
 
 class EventFeed extends Component {
@@ -116,9 +116,10 @@ class EventFeed extends Component {
   };
 
   getCurrentUser = () => {
-    axios.get('/api/currentUser')
+    axios
+      .get('/api/currentUser')
       .then(res => {
-        this.setState({ userId: res.data._id })
+        this.setState({ userId: res.data._id });
       })
       .catch(err => console.log(err));
   };
@@ -191,10 +192,7 @@ class EventFeed extends Component {
             <div key={i}>
               <ExpansionPanel className={classes.expender}>
                 <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                  <Typography
-                    className={classes.heading}
-                    component="h3"
-                  >
+                  <Typography className={classes.heading} component="h3">
                     {event.eventName}
                   </Typography>
                 </ExpansionPanelSummary>

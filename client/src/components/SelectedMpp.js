@@ -4,15 +4,15 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
+// import Typography from '@material-ui/core/Typography';
 // inport components
 import Loader from './Loader';
 import SMData from './SMData'; //MPP data
 import MppInfo from './dashComponents/Mppinfo';
-import FollowButton from './dashComponents/FollowButton';
+// import FollowButton from './dashComponents/FollowButton';
 import SocialList from './list/mppSocial';
 // tools
-import { Animated } from 'react-animated-css';
+// import { Animated } from 'react-animated-css';
 //
 
 const styles = theme => ({
@@ -103,6 +103,7 @@ class PaperSheet extends Component {
     axios
       .get('/api/currentUser')
       .then(res => {
+        console.log('user res ', res);
         this.setState({ userId: res.data._id });
       })
       .catch(err => console.log(err));
